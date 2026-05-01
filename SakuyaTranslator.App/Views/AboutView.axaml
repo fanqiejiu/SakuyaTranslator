@@ -1,0 +1,31 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SakuyaTranslator.App.Views.AboutView">
+  <StackPanel Margin="8" Spacing="8">
+    <TextBlock Text="{DynamicResource page.about}" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" />
+    <Border Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderSoftBrush}" BorderThickness="1" CornerRadius="6" Padding="10">
+      <Grid ColumnDefinitions="68,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="8" ColumnSpacing="8">
+        <TextBlock Text="{DynamicResource about.appName}" />
+        <TextBlock Grid.Column="1" Text="{Binding AppName}" FontWeight="SemiBold" />
+
+        <TextBlock Grid.Row="1" Text="{DynamicResource about.version}" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Version}" />
+
+        <TextBlock Grid.Row="2" Text="{DynamicResource about.updateStatus}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding UpdateStatus}" TextWrapping="Wrap" />
+
+        <TextBlock Grid.Row="3" Text="{DynamicResource about.dataDir}" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding DataDirectory}" TextWrapping="Wrap" />
+
+        <TextBlock Grid.Row="4" Text="{DynamicResource about.logsDir}" />
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding LogsDirectory}" TextWrapping="Wrap" />
+
+        <WrapPanel Grid.Row="5" Grid.ColumnSpan="2" Margin="0,2,0,0">
+          <Button Classes="primary" Content="{DynamicResource about.check}" Click="CheckUpdates_Click" Width="90" Padding="8,5" FontSize="12" Margin="0,0,6,6" />
+          <Button Content="{DynamicResource about.openData}" Click="OpenData_Click" Width="100" Padding="8,5" FontSize="12" Margin="0,0,6,6" />
+          <Button Content="{DynamicResource about.openLogs}" Click="OpenLogs_Click" Width="100" Padding="8,5" FontSize="12" Margin="0,0,0,6" />
+        </WrapPanel>
+      </Grid>
+    </Border>
+  </StackPanel>
+</UserControl>

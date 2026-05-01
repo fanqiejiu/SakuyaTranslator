@@ -1,0 +1,30 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SakuyaTranslator.App.Views.TemplatesView">
+  <Grid RowDefinitions="Auto,116,*,Auto" Margin="8" RowSpacing="8">
+    <Grid ColumnDefinitions="*,Auto,Auto,Auto" ColumnSpacing="6">
+      <TextBlock Text="{DynamicResource page.templates}" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" VerticalAlignment="Center" />
+      <Button Grid.Column="1" Content="{DynamicResource templates.new}" Command="{Binding NewCommand}" Padding="8,4" FontSize="12" />
+      <Button Grid.Column="2" Content="{DynamicResource templates.apply}" Command="{Binding ApplyCommand}" Padding="8,4" FontSize="12" />
+      <Button Grid.Column="3" Classes="primary" Content="{DynamicResource templates.save}" Command="{Binding SaveCommand}" Padding="8,4" FontSize="12" />
+    </Grid>
+
+    <ListBox Grid.Row="1"
+             ItemsSource="{Binding Templates}"
+             SelectedItem="{Binding SelectedTemplate}"
+             DisplayMemberBinding="{Binding Name}"
+             Background="{DynamicResource SurfaceBrush}"
+             BorderBrush="{DynamicResource BorderSoftBrush}" />
+
+    <Grid Grid.Row="2" RowDefinitions="Auto,*" RowSpacing="6">
+      <TextBox Text="{Binding SelectedTemplate.Name}" Watermark="{DynamicResource templates.nameWatermark}" FontSize="12" />
+      <TextBox Grid.Row="1"
+               Text="{Binding SelectedTemplate.Content}"
+               AcceptsReturn="True"
+               TextWrapping="Wrap"
+               Watermark="{DynamicResource templates.contentWatermark}" />
+    </Grid>
+
+    <TextBlock Grid.Row="3" Text="{Binding SavedMessage}" FontSize="12" Foreground="{DynamicResource AccentBrush}" />
+  </Grid>
+</UserControl>
