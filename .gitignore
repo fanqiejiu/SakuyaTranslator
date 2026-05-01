@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+.references/
+publish/
+Data/
+Projects/
+Backups/
+Logs/
+output/
+*.user
+*.suo
+*.log
+*.tmp
+*.mtproj.json

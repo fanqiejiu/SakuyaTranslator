@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MtTransTool.App.Views.PreviewView">
+  <Grid RowDefinitions="Auto,*,*" Margin="8" RowSpacing="8">
+    <Border Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderSoftBrush}" BorderThickness="1" CornerRadius="8" Padding="12">
+      <TextBlock Text="{Binding CurrentFile}" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" />
+    </Border>
+
+    <Grid Grid.Row="1" RowDefinitions="*,*" RowSpacing="8">
+      <Border Background="{DynamicResource SurfaceStrongBrush}" BorderBrush="{DynamicResource BorderSoftBrush}" BorderThickness="1" CornerRadius="8" Padding="12">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Top" Text="{DynamicResource preview.source}" FontWeight="SemiBold" Margin="0,0,0,8" />
+          <TextBox Text="{Binding SourceText}" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" />
+        </DockPanel>
+      </Border>
+      <Border Grid.Row="1" Background="{DynamicResource SurfaceStrongBrush}" BorderBrush="{DynamicResource BorderSoftBrush}" BorderThickness="1" CornerRadius="8" Padding="12">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Top" Text="{DynamicResource preview.translation}" FontWeight="SemiBold" Margin="0,0,0,8" />
+          <TextBox Text="{Binding TranslationText}" AcceptsReturn="True" IsReadOnly="True" TextWrapping="Wrap" />
+        </DockPanel>
+      </Border>
+    </Grid>
+
+    <Border Grid.Row="2" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderSoftBrush}" BorderThickness="1" CornerRadius="8" Padding="16">
+      <StackPanel>
+        <TextBlock Text="{DynamicResource preview.gameText}" FontWeight="SemiBold" Margin="0,0,0,10" />
+        <Border Background="{DynamicResource PreviewDialogBrush}" CornerRadius="8" Padding="16" MinHeight="120">
+          <TextBlock Text="{Binding TranslationText}" Foreground="{DynamicResource TextInverseBrush}" TextWrapping="Wrap" FontSize="15" />
+        </Border>
+      </StackPanel>
+    </Border>
+  </Grid>
+</UserControl>

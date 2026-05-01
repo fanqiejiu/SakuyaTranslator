@@ -1,0 +1,96 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:MtTransTool.App.Controls"
+             x:Class="MtTransTool.App.Views.LivePreviewView">
+  <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="8" RowSpacing="8">
+    <TextBlock Text="{DynamicResource page.livePreview}"
+               FontSize="16"
+               FontWeight="SemiBold"
+               Foreground="{DynamicResource TextPrimaryBrush}" />
+
+    <Border Grid.Row="1"
+            Background="{DynamicResource SurfaceBrush}"
+            BorderBrush="{DynamicResource BorderSoftBrush}"
+            BorderThickness="1"
+            CornerRadius="6"
+            Padding="8">
+      <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
+        <TextBlock Text="{Binding CurrentFile}"
+                   FontWeight="SemiBold"
+                   Foreground="{DynamicResource TextPrimaryBrush}"
+                   TextTrimming="CharacterEllipsis" />
+        <TextBlock Grid.Row="1"
+                   Text="{Binding StatusLine}"
+                   FontSize="12"
+                   Foreground="{DynamicResource TextSecondaryBrush}"
+                   TextTrimming="CharacterEllipsis" />
+        <Grid Grid.Row="2" ColumnDefinitions="*,42" ColumnSpacing="8">
+          <controls:PipeProgressBar Value="{Binding ProgressPercent}"
+                                    Status="{Binding ProgressStatus}"
+                                    ShowPercent="False"
+                                    Height="16" />
+          <TextBlock Grid.Column="1"
+                     Text="{Binding ProgressPercentText}"
+                     FontSize="11"
+                     FontWeight="SemiBold"
+                     TextAlignment="Right"
+                     VerticalAlignment="Center"
+                     Foreground="{DynamicResource TextSecondaryBrush}" />
+        </Grid>
+      </Grid>
+    </Border>
+
+    <Grid Grid.Row="2" RowDefinitions="*,*" RowSpacing="8">
+      <Border Background="{DynamicResource SurfaceStrongBrush}"
+              BorderBrush="{DynamicResource BorderSoftBrush}"
+              BorderThickness="1"
+              CornerRadius="6"
+              Padding="8">
+        <DockPanel>
+          <Grid DockPanel.Dock="Top" ColumnDefinitions="*,Auto" Margin="0,0,0,6">
+            <TextBlock Text="{DynamicResource preview.source}" FontWeight="SemiBold" />
+            <TextBlock Grid.Column="1"
+                       Text="{Binding EntryStatus}"
+                       FontSize="11"
+                       Foreground="{DynamicResource TextSecondaryBrush}" />
+          </Grid>
+          <TextBox Text="{Binding SourceText}"
+                   AcceptsReturn="True"
+                   IsReadOnly="True"
+                   TextWrapping="Wrap"
+                   FontSize="12" />
+        </DockPanel>
+      </Border>
+
+      <Border Grid.Row="1"
+              Background="{DynamicResource SurfaceStrongBrush}"
+              BorderBrush="{DynamicResource BorderSoftBrush}"
+              BorderThickness="1"
+              CornerRadius="6"
+              Padding="8">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Top"
+                     Text="{DynamicResource preview.translation}"
+                     FontWeight="SemiBold"
+                     Margin="0,0,0,6" />
+          <TextBox Text="{Binding TranslationText}"
+                   AcceptsReturn="True"
+                   IsReadOnly="True"
+                   TextWrapping="Wrap"
+                   FontSize="12" />
+        </DockPanel>
+      </Border>
+    </Grid>
+
+    <Border Grid.Row="3"
+            Background="{DynamicResource PreviewDialogBrush}"
+            CornerRadius="8"
+            Padding="12"
+            MinHeight="82">
+      <TextBlock Text="{Binding TranslationText}"
+                 Foreground="{DynamicResource TextInverseBrush}"
+                 TextWrapping="Wrap"
+                 FontSize="14" />
+    </Border>
+  </Grid>
+</UserControl>

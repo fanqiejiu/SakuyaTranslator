@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "channel": "stable",
+  "title": "Initial preview",
+  "changelog": "- Initial queue UI\n- MTTool JSON import/export\n- Breakpoint resume scaffold",
+  "downloadUrl": "https://github.com/owner/repo/releases/download/v0.1.0/SakuyaTranslator-win-x64.zip",
+  "changelogUrl": "https://github.com/owner/repo/releases/tag/v0.1.0",
+  "sha256": ""
+}
